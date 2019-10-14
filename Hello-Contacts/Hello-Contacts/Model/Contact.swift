@@ -25,6 +25,24 @@ class Contact {
   init(contact: CNContact) {
     self.contact = contact
   }
+    
+  var emailAddress: String {
+    // 1
+    return String(contact.emailAddresses.first?.value ?? "--")
+  }
+
+  var phoneNumber: String {
+    // 2
+    return contact.phoneNumbers.first?.value.stringValue ?? "--"
+  }
+
+  var address: String {
+    // 3
+    let street = contact.postalAddresses.first?.value.street ?? "--"
+    let city = contact.postalAddresses.first?.value.city ?? "--"
+
+    return "\(street) \(city)"
+  }
 
   //2
   func fetchImageIfNeeded(completion: @escaping ((UIImage?) -> Void) = {_ in }) {

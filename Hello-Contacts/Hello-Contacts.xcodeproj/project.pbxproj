@@ -25,8 +25,9 @@
 		8D4CFFEF23378518003E67A0 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4CFFEE23378518003E67A0 /* Contacts.framework */; };
 		8D4CFFF5233788C9003E67A0 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CFFF3233788C9003E67A0 /* ContactTableViewCell.swift */; };
 		8D4CFFF6233788C9003E67A0 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4CFFF4233788C9003E67A0 /* ContactTableViewCell.xib */; };
-		8D6C756F23551884001651BB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C756E23551884001651BB /* InputViewController.swift */; };
-		8D85047F2353CFFB008067BD /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85047E2353CFFB008067BD /* ContactDetailViewController.swift */; };
+		8D6C757123551FBC001651BB /* StackViewContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C757023551FBC001651BB /* StackViewContactDetailsViewController.swift */; };
+		8D6C75752355209C001651BB /* ContactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C75742355209C001651BB /* ContactDetailsVC.swift */; };
+		8D85047F2353CFFB008067BD /* SimpleViewContactDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85047E2353CFFB008067BD /* SimpleViewContactDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +72,9 @@
 		8D4CFFEE23378518003E67A0 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		8D4CFFF3233788C9003E67A0 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		8D4CFFF4233788C9003E67A0 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
-		8D6C756E23551884001651BB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
-		8D85047E2353CFFB008067BD /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		8D6C757023551FBC001651BB /* StackViewContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewContactDetailsViewController.swift; sourceTree = "<group>"; };
+		8D6C75742355209C001651BB /* ContactDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVC.swift; sourceTree = "<group>"; };
+		8D85047E2353CFFB008067BD /* SimpleViewContactDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewContactDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,8 +190,9 @@
 				8D4CFFC62337837C003E67A0 /* Assets.xcassets */,
 				8D4CFFC82337837C003E67A0 /* LaunchScreen.storyboard */,
 				8D4CFFCB2337837C003E67A0 /* Info.plist */,
-				8D85047E2353CFFB008067BD /* ContactDetailViewController.swift */,
-				8D6C756E23551884001651BB /* InputViewController.swift */,
+				8D85047E2353CFFB008067BD /* SimpleViewContactDetailVC.swift */,
+				8D6C75742355209C001651BB /* ContactDetailsVC.swift */,
+				8D6C757023551FBC001651BB /* StackViewContactDetailsViewController.swift */,
 			);
 			path = "Hello-Contacts";
 			sourceTree = "<group>";
@@ -363,15 +366,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D3F59ED23469B250035F0A6 /* ContactListViewController.swift in Sources */,
+				8D6C75752355209C001651BB /* ContactDetailsVC.swift in Sources */,
 				8D4CFFF5233788C9003E67A0 /* ContactTableViewCell.swift in Sources */,
 				8D4A1A52233EBBF00050E911 /* Contact.swift in Sources */,
-				8D6C756F23551884001651BB /* InputViewController.swift in Sources */,
+				8D6C757123551FBC001651BB /* StackViewContactDetailsViewController.swift in Sources */,
 				8D3F59F323469F620035F0A6 /* ContactsCollectionViewController.swift in Sources */,
 				8D4CFFBE2337837A003E67A0 /* AppDelegate.swift in Sources */,
 				8D3F59F72346A11E0035F0A6 /* ContactCollectionViewCell.swift in Sources */,
 				8D3F59EF23469EFA0035F0A6 /* ContactsManager.swift in Sources */,
 				8D4CFFC02337837A003E67A0 /* SceneDelegate.swift in Sources */,
-				8D85047F2353CFFB008067BD /* ContactDetailViewController.swift in Sources */,
+				8D85047F2353CFFB008067BD /* SimpleViewContactDetailVC.swift in Sources */,
 				8D3DDFC52352753D0082F04E /* DataSource.swift in Sources */,
 				8D3DDFC2235274B50082F04E /* ContactsCollectionViewLayout.swift in Sources */,
 			);

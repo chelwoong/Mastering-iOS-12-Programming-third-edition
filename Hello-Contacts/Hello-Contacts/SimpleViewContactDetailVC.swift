@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ContactDetailViewController: InputViewController {
+
+
+class SimpleViewContactDetailVC: ContactDetailsVC {
 
     var oldBottomInset: CGFloat = 0.0
-    @IBOutlet weak var contactImage: UIImageView!
-    @IBOutlet weak var contactNameLabel: UILabel!
     var compactWidthConstraint: NSLayoutConstraint!
     var compactHeightConstraint: NSLayoutConstraint!
     var regularWidthConstraint: NSLayoutConstraint!

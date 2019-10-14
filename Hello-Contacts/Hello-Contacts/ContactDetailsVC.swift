@@ -1,5 +1,5 @@
 //
-//  InputViewController.swift
+//  ContactDetailsVC.swift
 //  Hello-Contacts
 //
 //  Created by Marat Ibragimov on 14/10/2019.
@@ -8,12 +8,30 @@
 
 import UIKit
 
-class InputViewController: UIViewController {
+
+class ContactDetailsVC: UIViewController {
        
+    var contact: Contact?
+    @IBOutlet var contactPhoneLabel: UILabel!
+    @IBOutlet var contactEmailLabel: UILabel!
+    @IBOutlet var contactAddressLabel: UILabel!
+    @IBOutlet weak var contactImage: UIImageView!
+    @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet var scrollViewBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let contact = self.contact {
+           // 1
+           contact.fetchImageIfNeeded { [weak self] image in
+             self?.contactImage.image = image
+           }
+
+           contactNameLabel.text = "\(contact.givenName) \(contact.familyName)"
+           contactPhoneLabel.text = contact.phoneNumber
+           contactEmailLabel.text = contact.emailAddress
+           contactAddressLabel.text = contact.address
+         }
           NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear),
                                                     name: UIApplication.keyboardWillShowNotification,
                                                     object: nil)

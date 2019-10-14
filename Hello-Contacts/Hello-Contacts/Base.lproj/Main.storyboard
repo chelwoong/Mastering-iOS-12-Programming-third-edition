@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="788.83928571428567"/>
         </scene>
-        <!--Contact Detail View Controller-->
+        <!--Simple View Contact DetailVC-->
         <scene sceneID="8s0-MS-BPb">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="XCH-rC-T4n" customClass="ContactDetailViewController" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="XCH-rC-T4n" customClass="SimpleViewContactDetailVC" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X8k-Eo-OIN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="788.83928571428567"/>
         </scene>
-        <!--Input View Controller-->
+        <!--Contact DetailsVC-->
         <scene sceneID="Dan-5p-Zgc">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6t9-2j-2Ee" customClass="InputViewController" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6t9-2j-2Ee" customClass="ContactDetailsVC" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TV9-rU-LPJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,8 +351,8 @@
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <mask key="constraints">
-                                                        <exclude reference="dDC-P6-KWO"/>
                                                         <exclude reference="Sde-PB-Z9Z"/>
+                                                        <exclude reference="dDC-P6-KWO"/>
                                                         <include reference="lL0-P6-Zg6"/>
                                                         <include reference="mEo-QW-hUl"/>
                                                     </mask>
@@ -477,6 +477,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="MkC-6S-dSE"/>
                     <connections>
+                        <outlet property="contactAddressLabel" destination="mqt-iM-6NP" id="tgG-k0-LvR"/>
+                        <outlet property="contactEmailLabel" destination="WXi-ks-jZh" id="qBp-0Y-AhB"/>
+                        <outlet property="contactImage" destination="dly-61-g9O" id="aqP-oT-Vop"/>
+                        <outlet property="contactNameLabel" destination="ibR-5S-B6D" id="VAw-zM-4fI"/>
+                        <outlet property="contactPhoneLabel" destination="61Z-oV-iTX" id="Utm-qX-w4R"/>
                         <outlet property="scrollViewBottomConstraint" destination="vuq-xV-shS" id="YYo-1p-ViF"/>
                     </connections>
                 </viewController>

@@ -165,3 +165,13 @@ extension ContactsCollectionViewController: UICollectionViewDelegate {
 }
 
 
+
+extension ContactsCollectionViewController {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let contactDetailVC = segue.destination as? ContactDetailsVC,
+      segue.identifier == "detailViewSegue",
+      let selectedIndex = collectionView.indexPathsForSelectedItems?.first {
+        contactDetailVC.contact = dataSource.item(at: selectedIndex.row)
+    }
+  }
+}
