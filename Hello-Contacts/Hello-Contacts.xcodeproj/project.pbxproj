@@ -25,6 +25,7 @@
 		8D4CFFEF23378518003E67A0 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4CFFEE23378518003E67A0 /* Contacts.framework */; };
 		8D4CFFF5233788C9003E67A0 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CFFF3233788C9003E67A0 /* ContactTableViewCell.swift */; };
 		8D4CFFF6233788C9003E67A0 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4CFFF4233788C9003E67A0 /* ContactTableViewCell.xib */; };
+		8D6C756F23551884001651BB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C756E23551884001651BB /* InputViewController.swift */; };
 		8D85047F2353CFFB008067BD /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85047E2353CFFB008067BD /* ContactDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		8D4CFFEE23378518003E67A0 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		8D4CFFF3233788C9003E67A0 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		8D4CFFF4233788C9003E67A0 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		8D6C756E23551884001651BB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		8D85047E2353CFFB008067BD /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 				8D4CFFC82337837C003E67A0 /* LaunchScreen.storyboard */,
 				8D4CFFCB2337837C003E67A0 /* Info.plist */,
 				8D85047E2353CFFB008067BD /* ContactDetailViewController.swift */,
+				8D6C756E23551884001651BB /* InputViewController.swift */,
 			);
 			path = "Hello-Contacts";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				8D3F59ED23469B250035F0A6 /* ContactListViewController.swift in Sources */,
 				8D4CFFF5233788C9003E67A0 /* ContactTableViewCell.swift in Sources */,
 				8D4A1A52233EBBF00050E911 /* Contact.swift in Sources */,
+				8D6C756F23551884001651BB /* InputViewController.swift in Sources */,
 				8D3F59F323469F620035F0A6 /* ContactsCollectionViewController.swift in Sources */,
 				8D4CFFBE2337837A003E67A0 /* AppDelegate.swift in Sources */,
 				8D3F59F72346A11E0035F0A6 /* ContactCollectionViewCell.swift in Sources */,

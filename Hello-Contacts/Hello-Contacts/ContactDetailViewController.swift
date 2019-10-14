@@ -8,14 +8,15 @@
 
 import UIKit
 
-class ContactDetailViewController: UIViewController {
+class ContactDetailViewController: InputViewController {
 
     var oldBottomInset: CGFloat = 0.0
-    @IBOutlet var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var contactImage: UIImageView!
     @IBOutlet weak var contactNameLabel: UILabel!
     var compactWidthConstraint: NSLayoutConstraint!
     var compactHeightConstraint: NSLayoutConstraint!
+    var regularWidthConstraint: NSLayoutConstraint!
+    var regularHeightConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,47 +37,45 @@ class ContactDetailViewController: UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         compactWidthConstraint = contactImage.widthAnchor.constraint(equalToConstant: 60)
         compactHeightConstraint = contactImage.heightAnchor.constraint(equalToConstant: 60)
+        regularWidthConstraint = contactImage.widthAnchor.constraint(equalToConstant: 120)
+        regularHeightConstraint = contactImage.heightAnchor.constraint(equalToConstant: 120)
+        
         let verticalPositioningConstraints = NSLayoutConstraint.constraints(
         withVisualFormat: "V:|-[contactImage]-[contactNameLabel]",
         options: [.alignAllCenterX], metrics: nil, views: views)
         allConstraints += verticalPositioningConstraints
         let centerXConstraint = contactImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         allConstraints.append(centerXConstraint)
-        allConstraints.append(compactWidthConstraint)
-        allConstraints.append(compactHeightConstraint)
+        
+        if traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular {
+            allConstraints.append(compactWidthConstraint)
+            allConstraints.append(compactHeightConstraint)
+        } else {
+            allConstraints.append(regularWidthConstraint)
+            allConstraints.append(regularHeightConstraint)
+        }
         NSLayoutConstraint.activate(allConstraints)
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+      super.traitCollectionDidChange(previousTraitCollection)
+
+      // 1
+      guard let previousTraitCollection = previousTraitCollection,
+         (previousTraitCollection.horizontalSizeClass != traitCollection.horizontalSizeClass ||
+          previousTraitCollection.verticalSizeClass != traitCollection.verticalSizeClass)
+        else { return}
+
+      // 2
+      if traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular {
+        NSLayoutConstraint.deactivate([compactHeightConstraint, compactWidthConstraint])
+        NSLayoutConstraint.activate([regularHeightConstraint, regularWidthConstraint])
+      } else {
+        NSLayoutConstraint.deactivate([regularHeightConstraint, regularWidthConstraint])
+        NSLayoutConstraint.activate([compactHeightConstraint, compactWidthConstraint])
+      }
+    }
     
-    @objc func didTapOnScreen() {
-        self.view.endEditing(true)
-    }
-
-    @objc func keyboardWillAppear(_ notification: Notification) {
-      guard let userInfo = notification.userInfo,
-        // 1
-        let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-        let animationDuration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        else { return }
-
-    
-        scrollViewBottomConstraint.constant = -keyboardFrame.cgRectValue.size.height
-      UIView.animate(withDuration: TimeInterval(animationDuration), animations: { [weak self ] in
-        // 3
-        self?.view.layoutIfNeeded()
-      })
-    }
-
-    @objc func keyboardWillHide(_ notification: Notification) {
-      guard let userInfo = notification.userInfo,
-        let animationDuration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        else { return }
-
-        scrollViewBottomConstraint.constant = 0
-      UIView.animate(withDuration: TimeInterval(animationDuration), animations: { [weak self ] in
-        self?.view.layoutIfNeeded()
-      })
-    }
     
     /*
     // MARK: - Navigation
