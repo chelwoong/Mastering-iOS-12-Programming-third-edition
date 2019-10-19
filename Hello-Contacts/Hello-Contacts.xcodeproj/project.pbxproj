@@ -14,6 +14,8 @@
 		8D3F59F323469F620035F0A6 /* ContactsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F59F223469F620035F0A6 /* ContactsCollectionViewController.swift */; };
 		8D3F59F72346A11E0035F0A6 /* ContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F59F52346A11E0035F0A6 /* ContactCollectionViewCell.swift */; };
 		8D3F59F82346A11E0035F0A6 /* ContactCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D3F59F62346A11E0035F0A6 /* ContactCollectionViewCell.xib */; };
+		8D449F6D235904D600F169B2 /* CustomPresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D449F6C235904D600F169B2 /* CustomPresentedViewController.swift */; };
+		8D449F70235906AE00F169B2 /* CustomModalShowAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D449F6F235906AE00F169B2 /* CustomModalShowAnimator.swift */; };
 		8D4A1A52233EBBF00050E911 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4A1A51233EBBF00050E911 /* Contact.swift */; };
 		8D4CFFBE2337837A003E67A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CFFBD2337837A003E67A0 /* AppDelegate.swift */; };
 		8D4CFFC02337837A003E67A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CFFBF2337837A003E67A0 /* SceneDelegate.swift */; };
@@ -55,6 +57,8 @@
 		8D3F59F223469F620035F0A6 /* ContactsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCollectionViewController.swift; sourceTree = "<group>"; };
 		8D3F59F52346A11E0035F0A6 /* ContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCollectionViewCell.swift; sourceTree = "<group>"; };
 		8D3F59F62346A11E0035F0A6 /* ContactCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCollectionViewCell.xib; sourceTree = "<group>"; };
+		8D449F6C235904D600F169B2 /* CustomPresentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentedViewController.swift; sourceTree = "<group>"; };
+		8D449F6F235906AE00F169B2 /* CustomModalShowAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalShowAnimator.swift; sourceTree = "<group>"; };
 		8D4A1A51233EBBF00050E911 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		8D4CFFBA2337837A003E67A0 /* Hello-Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hello-Contacts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4CFFBD2337837A003E67A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +159,14 @@
 			path = ContactCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		8D449F6E2359069400F169B2 /* TransitionAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				8D449F6F235906AE00F169B2 /* CustomModalShowAnimator.swift */,
+			);
+			path = TransitionAnimator;
+			sourceTree = "<group>";
+		};
 		8D4CFFB12337837A003E67A0 = {
 			isa = PBXGroup;
 			children = (
@@ -190,9 +202,11 @@
 				8D4CFFC62337837C003E67A0 /* Assets.xcassets */,
 				8D4CFFC82337837C003E67A0 /* LaunchScreen.storyboard */,
 				8D4CFFCB2337837C003E67A0 /* Info.plist */,
+				8D449F6E2359069400F169B2 /* TransitionAnimator */,
 				8D85047E2353CFFB008067BD /* SimpleViewContactDetailVC.swift */,
 				8D6C75742355209C001651BB /* ContactDetailsVC.swift */,
 				8D6C757023551FBC001651BB /* StackViewContactDetailsViewController.swift */,
+				8D449F6C235904D600F169B2 /* CustomPresentedViewController.swift */,
 			);
 			path = "Hello-Contacts";
 			sourceTree = "<group>";
@@ -375,7 +389,9 @@
 				8D3F59F72346A11E0035F0A6 /* ContactCollectionViewCell.swift in Sources */,
 				8D3F59EF23469EFA0035F0A6 /* ContactsManager.swift in Sources */,
 				8D4CFFC02337837A003E67A0 /* SceneDelegate.swift in Sources */,
+				8D449F6D235904D600F169B2 /* CustomPresentedViewController.swift in Sources */,
 				8D85047F2353CFFB008067BD /* SimpleViewContactDetailVC.swift in Sources */,
+				8D449F70235906AE00F169B2 /* CustomModalShowAnimator.swift in Sources */,
 				8D3DDFC52352753D0082F04E /* DataSource.swift in Sources */,
 				8D3DDFC2235274B50082F04E /* ContactsCollectionViewLayout.swift in Sources */,
 			);

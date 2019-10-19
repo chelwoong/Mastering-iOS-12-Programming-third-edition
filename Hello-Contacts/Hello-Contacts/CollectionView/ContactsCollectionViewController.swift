@@ -8,14 +8,28 @@
 
 import UIKit
 import Contacts
+
+class TransitionDelegate:NSObject, UIViewControllerTransitioningDelegate {
+
+  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return CustomModalShowAnimator()
+  }
+
+  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return nil
+  }
+}
+
+
 class ContactsCollectionViewController: UIViewController {
 
+    let transitionDelegate = TransitionDelegate()
     var contactsManager = ContactsManager ()
     var dataSource = DataSource<Contact>()
     @IBOutlet var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.transitioningDelegate = transitionDelegate
         let store = CNContactStore()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -45,14 +59,17 @@ class ContactsCollectionViewController: UIViewController {
       super.setEditing(editing, animated: animated)
 
       for cell in collectionView.visibleCells {
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseOut], animations: {
-          if editing {
-            cell.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-          } else {
-            cell.backgroundColor = .clear
-          }
-        }, completion: nil)
+      
+        let animationProperty = UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut) {
+            if editing {
+                cell.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+            } else {
+                cell.backgroundColor = .clear
+            }
+        }
+        animationProperty.startAnimation()
       }
+   
     }
     
     @objc func didLongPressOnItem(gesture: UILongPressGestureRecognizer) {
@@ -75,9 +92,11 @@ class ContactsCollectionViewController: UIViewController {
         switch state {
         case .began:
             collectionView.beginInteractiveMovementForItem(at: indexPath)
-            UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseOut], animations: {
-              tappedCell.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            }, completion: nil)
+       
+            let animation = UIViewPropertyAnimator(duration: 0.2, curve: .easeOut) {
+                tappedCell.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }
+            animation.startAnimation()
         case .changed:
             collectionView.updateInteractiveMovementTargetPosition(tappedPoint)
         case .ended:
@@ -143,16 +162,27 @@ extension ContactsCollectionViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ContactCollectionViewCell else { return }
-        UIView.animate(withDuration: 0.5, animations: {
-            cell.contactImageView.transform = CGAffineTransform.init(scaleX: 0.9, y: 0.9)
-        }) { (finished) in
-            UIView.animate(withDuration: 0.1, delay: 0, options: [.curveEaseIn], animations: {
-              cell.contactImageView.transform = .identity
-            }, completion: { [weak self]  finished in
-                
-                self?.performSegue(withIdentifier: "detailViewSegue", sender: self)
-            })
+
+        // 1
+        let downAnimator = UIViewPropertyAnimator(duration: 0.1, curve: .easeOut) {
+            cell.contactImageView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         }
+
+        let upAnimator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
+            cell.contactImageView.transform = CGAffineTransform.identity
+        }
+
+        // 2
+        downAnimator.addCompletion { _ in
+            upAnimator.startAnimation()
+        }
+
+        upAnimator.addCompletion { [weak self] _ in
+            self?.performSegue(withIdentifier: "detailViewSegue", sender: self)
+        }
+
+        // 3
+        downAnimator.startAnimation()
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -172,6 +202,10 @@ extension ContactsCollectionViewController {
       segue.identifier == "detailViewSegue",
       let selectedIndex = collectionView.indexPathsForSelectedItems?.first {
         contactDetailVC.contact = dataSource.item(at: selectedIndex.row)
+    }else if let customPresntedVC = segue.destination as? CustomPresentedViewController {
+        customPresntedVC.transitioningDelegate = transitionDelegate
     }
   }
+    
+  
 }

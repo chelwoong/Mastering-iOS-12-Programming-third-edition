@@ -68,7 +68,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vum-NE-Eqa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4LB-k6-QPv"/>
+                    <navigationItem key="navigationItem" id="4LB-k6-QPv">
+                        <barButtonItem key="leftBarButtonItem" title="Show modal" id="uIp-k4-oQV">
+                            <connections>
+                                <segue destination="eOB-B8-yzX" kind="presentation" id="BIn-b8-W3f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="yfC-vB-1Xv" id="VaD-oF-Hhs"/>
                         <segue destination="6t9-2j-2Ee" kind="show" identifier="detailViewSegue" id="SDV-x4-GuK"/>
@@ -321,10 +327,26 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="788.83928571428567"/>
         </scene>
-        <!--Contact DetailsVC-->
+        <!--Custom Presented View Controller-->
+        <scene sceneID="2Vb-l6-W9n">
+            <objects>
+                <viewController id="eOB-B8-yzX" customClass="CustomPresentedViewController" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLs-4S-lDB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="a28-ck-iAn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="w4Q-ru-0n7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGj-h0-ajA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1958" y="1583"/>
+        </scene>
+        <!--Stack View Contact Details View Controller-->
         <scene sceneID="Dan-5p-Zgc">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6t9-2j-2Ee" customClass="ContactDetailsVC" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6t9-2j-2Ee" customClass="StackViewContactDetailsViewController" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TV9-rU-LPJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -465,12 +487,34 @@
                                     <constraint firstItem="VjR-Lw-DSM" firstAttribute="width" secondItem="dbb-0j-fqb" secondAttribute="width" id="w1w-Ct-ybo"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QT-RJ-22N">
+                                <rect key="frame" x="0.0" y="686" width="414" height="350"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4I-ft-lKX">
+                                        <rect key="frame" x="158" y="8" width="98" height="30"/>
+                                        <state key="normal" title="Toggle drawer"/>
+                                        <connections>
+                                            <action selector="toggleDrawerClicked:" destination="6t9-2j-2Ee" eventType="touchUpInside" id="hKt-41-ciZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="P4I-ft-lKX" firstAttribute="centerX" secondItem="8QT-RJ-22N" secondAttribute="centerX" id="4XY-5J-yUL"/>
+                                    <constraint firstItem="P4I-ft-lKX" firstAttribute="top" secondItem="8QT-RJ-22N" secondAttribute="top" constant="8" id="LEd-7G-dgc"/>
+                                    <constraint firstAttribute="height" constant="350" id="SJi-j8-Ez2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dbb-0j-fqb" firstAttribute="trailing" secondItem="rbT-bN-gOb" secondAttribute="trailing" id="0TB-8F-q4U"/>
+                            <constraint firstItem="rbT-bN-gOb" firstAttribute="bottom" secondItem="8QT-RJ-22N" secondAttribute="bottom" constant="-300" id="6cg-JZ-lvv"/>
+                            <constraint firstItem="rbT-bN-gOb" firstAttribute="trailing" secondItem="8QT-RJ-22N" secondAttribute="trailing" id="7hA-Ih-Z2m"/>
                             <constraint firstItem="dbb-0j-fqb" firstAttribute="leading" secondItem="rbT-bN-gOb" secondAttribute="leading" id="Du3-Iu-Gyb"/>
                             <constraint firstItem="dbb-0j-fqb" firstAttribute="top" secondItem="rbT-bN-gOb" secondAttribute="top" id="Oqp-zA-z9U"/>
+                            <constraint firstItem="8QT-RJ-22N" firstAttribute="leading" secondItem="rbT-bN-gOb" secondAttribute="leading" id="Zdh-4s-Hkg"/>
+                            <constraint firstItem="8QT-RJ-22N" firstAttribute="centerX" secondItem="rbT-bN-gOb" secondAttribute="centerX" id="mfE-V7-zta"/>
                             <constraint firstItem="dbb-0j-fqb" firstAttribute="bottom" secondItem="rbT-bN-gOb" secondAttribute="bottom" id="vuq-xV-shS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rbT-bN-gOb"/>
@@ -482,6 +526,7 @@
                         <outlet property="contactImage" destination="dly-61-g9O" id="aqP-oT-Vop"/>
                         <outlet property="contactNameLabel" destination="ibR-5S-B6D" id="VAw-zM-4fI"/>
                         <outlet property="contactPhoneLabel" destination="61Z-oV-iTX" id="Utm-qX-w4R"/>
+                        <outlet property="drawer" destination="8QT-RJ-22N" id="fWR-fi-IyV"/>
                         <outlet property="scrollViewBottomConstraint" destination="vuq-xV-shS" id="YYo-1p-ViF"/>
                     </connections>
                 </viewController>
