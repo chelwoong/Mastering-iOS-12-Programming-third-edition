@@ -9,26 +9,27 @@
 import UIKit
 import Contacts
 
-class TransitionDelegate:NSObject, UIViewControllerTransitioningDelegate {
+class TransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
 
   func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     return CustomModalShowAnimator()
   }
 
-  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return nil
-  }
 }
 
 
 class ContactsCollectionViewController: UIViewController {
-
+    var navigationDelegate: NavigationDelegate?
     let transitionDelegate = TransitionDelegate()
     var contactsManager = ContactsManager ()
     var dataSource = DataSource<Contact>()
     @IBOutlet var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let navigationController = self.navigationController {
+            navigationDelegate = NavigationDelegate(withNavigationController: navigationController)
+            navigationController.delegate = navigationDelegate
+        }
         self.transitioningDelegate = transitionDelegate
         let store = CNContactStore()
         self.collectionView.dataSource = self

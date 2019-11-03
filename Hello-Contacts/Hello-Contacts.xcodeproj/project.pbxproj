@@ -27,6 +27,10 @@
 		8D4CFFEF23378518003E67A0 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4CFFEE23378518003E67A0 /* Contacts.framework */; };
 		8D4CFFF5233788C9003E67A0 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CFFF3233788C9003E67A0 /* ContactTableViewCell.swift */; };
 		8D4CFFF6233788C9003E67A0 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4CFFF4233788C9003E67A0 /* ContactTableViewCell.xib */; };
+		8D6548C2236DD9C500DFF4B1 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6548C1236DD9C500DFF4B1 /* NavigationDelegate.swift */; };
+		8D6548C5236DD9FF00DFF4B1 /* ContactDetailShowAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6548C4236DD9FF00DFF4B1 /* ContactDetailShowAnimator.swift */; };
+		8D6548C7236DDA0A00DFF4B1 /* ContactDetailHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6548C6236DDA0A00DFF4B1 /* ContactDetailHideAnimator.swift */; };
+		8D6548C9236E05E900DFF4B1 /* CustomModalHideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6548C8236E05E900DFF4B1 /* CustomModalHideAnimator.swift */; };
 		8D6C757123551FBC001651BB /* StackViewContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C757023551FBC001651BB /* StackViewContactDetailsViewController.swift */; };
 		8D6C75752355209C001651BB /* ContactDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6C75742355209C001651BB /* ContactDetailsVC.swift */; };
 		8D85047F2353CFFB008067BD /* SimpleViewContactDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85047E2353CFFB008067BD /* SimpleViewContactDetailVC.swift */; };
@@ -76,6 +80,10 @@
 		8D4CFFEE23378518003E67A0 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		8D4CFFF3233788C9003E67A0 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		8D4CFFF4233788C9003E67A0 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
+		8D6548C1236DD9C500DFF4B1 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationDelegate.swift; path = "Hello-Contacts/NavigationTransition/NavigationDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		8D6548C4236DD9FF00DFF4B1 /* ContactDetailShowAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailShowAnimator.swift; sourceTree = "<group>"; };
+		8D6548C6236DDA0A00DFF4B1 /* ContactDetailHideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailHideAnimator.swift; sourceTree = "<group>"; };
+		8D6548C8236E05E900DFF4B1 /* CustomModalHideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalHideAnimator.swift; sourceTree = "<group>"; };
 		8D6C757023551FBC001651BB /* StackViewContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewContactDetailsViewController.swift; sourceTree = "<group>"; };
 		8D6C75742355209C001651BB /* ContactDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsVC.swift; sourceTree = "<group>"; };
 		8D85047E2353CFFB008067BD /* SimpleViewContactDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewContactDetailVC.swift; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				8D449F6F235906AE00F169B2 /* CustomModalShowAnimator.swift */,
+				8D6548C8236E05E900DFF4B1 /* CustomModalHideAnimator.swift */,
 			);
 			path = TransitionAnimator;
 			sourceTree = "<group>";
@@ -204,6 +213,7 @@
 				8D4CFFCB2337837C003E67A0 /* Info.plist */,
 				8D449F6E2359069400F169B2 /* TransitionAnimator */,
 				8D85047E2353CFFB008067BD /* SimpleViewContactDetailVC.swift */,
+				8D6548C3236DD9E400DFF4B1 /* NavigationTransition */,
 				8D6C75742355209C001651BB /* ContactDetailsVC.swift */,
 				8D6C757023551FBC001651BB /* StackViewContactDetailsViewController.swift */,
 				8D449F6C235904D600F169B2 /* CustomPresentedViewController.swift */,
@@ -244,6 +254,16 @@
 				8D4CFFF4233788C9003E67A0 /* ContactTableViewCell.xib */,
 			);
 			path = ContactTableViewCell;
+			sourceTree = "<group>";
+		};
+		8D6548C3236DD9E400DFF4B1 /* NavigationTransition */ = {
+			isa = PBXGroup;
+			children = (
+				8D6548C1236DD9C500DFF4B1 /* NavigationDelegate.swift */,
+				8D6548C4236DD9FF00DFF4B1 /* ContactDetailShowAnimator.swift */,
+				8D6548C6236DDA0A00DFF4B1 /* ContactDetailHideAnimator.swift */,
+			);
+			path = NavigationTransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,12 +407,16 @@
 				8D3F59F323469F620035F0A6 /* ContactsCollectionViewController.swift in Sources */,
 				8D4CFFBE2337837A003E67A0 /* AppDelegate.swift in Sources */,
 				8D3F59F72346A11E0035F0A6 /* ContactCollectionViewCell.swift in Sources */,
+				8D6548C7236DDA0A00DFF4B1 /* ContactDetailHideAnimator.swift in Sources */,
 				8D3F59EF23469EFA0035F0A6 /* ContactsManager.swift in Sources */,
+				8D6548C5236DD9FF00DFF4B1 /* ContactDetailShowAnimator.swift in Sources */,
 				8D4CFFC02337837A003E67A0 /* SceneDelegate.swift in Sources */,
 				8D449F6D235904D600F169B2 /* CustomPresentedViewController.swift in Sources */,
 				8D85047F2353CFFB008067BD /* SimpleViewContactDetailVC.swift in Sources */,
 				8D449F70235906AE00F169B2 /* CustomModalShowAnimator.swift in Sources */,
 				8D3DDFC52352753D0082F04E /* DataSource.swift in Sources */,
+				8D6548C9236E05E900DFF4B1 /* CustomModalHideAnimator.swift in Sources */,
+				8D6548C2236DD9C500DFF4B1 /* NavigationDelegate.swift in Sources */,
 				8D3DDFC2235274B50082F04E /* ContactsCollectionViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,7 +20,7 @@ class ContactDetailsVC: UIViewController {
     @IBOutlet var scrollViewBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.clipsToBounds = true
         if let contact = self.contact {
            // 1
            contact.fetchImageIfNeeded { [weak self] image in

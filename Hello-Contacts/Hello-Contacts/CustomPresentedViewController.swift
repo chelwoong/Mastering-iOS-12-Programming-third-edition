@@ -8,12 +8,24 @@
 
 import UIKit
 
-class CustomPresentedViewController: UIViewController {
+class CustomPresentedViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+
+ var hideAnimator: CustomModalHideAnimator?
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    transitioningDelegate = self
+    hideAnimator = CustomModalHideAnimator(withViewController: self)
   }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+      return hideAnimator
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+      return hideAnimator
+    } 
 }
 
 

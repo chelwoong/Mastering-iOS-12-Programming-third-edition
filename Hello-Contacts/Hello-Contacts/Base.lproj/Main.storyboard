@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LlO-jS-xHx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LlO-jS-xHx">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,7 +71,7 @@
                     <navigationItem key="navigationItem" id="4LB-k6-QPv">
                         <barButtonItem key="leftBarButtonItem" title="Show modal" id="uIp-k4-oQV">
                             <connections>
-                                <segue destination="eOB-B8-yzX" kind="presentation" id="BIn-b8-W3f"/>
+                                <segue destination="eOB-B8-yzX" kind="presentation" modalPresentationStyle="fullScreen" id="BIn-b8-W3f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -225,7 +225,7 @@
                                                 </variation>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="JI2-DZ-KLg" secondAttribute="bottom" id="9No-HH-Pft"/>
                                             <constraint firstItem="PsC-8J-XGU" firstAttribute="centerX" secondItem="G3b-PU-lBR" secondAttribute="centerX" id="CAU-3H-dJC"/>
@@ -332,9 +332,9 @@
             <objects>
                 <viewController id="eOB-B8-yzX" customClass="CustomPresentedViewController" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xLs-4S-lDB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="a28-ck-iAn"/>
                     </view>
                     <navigationItem key="navigationItem" id="w4Q-ru-0n7"/>
@@ -347,7 +347,7 @@
         <scene sceneID="Dan-5p-Zgc">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="6t9-2j-2Ee" customClass="StackViewContactDetailsViewController" customModule="Hello_Contacts" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TV9-rU-LPJ">
+                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TV9-rU-LPJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -466,7 +466,7 @@
                                                 <variation key="heightClass=regular-widthClass=regular" axis="horizontal"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="hWO-or-o52" secondAttribute="bottom" constant="8" id="EMM-c6-Zxh"/>
                                             <constraint firstItem="ibR-5S-B6D" firstAttribute="top" secondItem="dly-61-g9O" secondAttribute="bottom" constant="8" id="Hyf-ZT-fW6"/>
@@ -506,7 +506,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dbb-0j-fqb" firstAttribute="trailing" secondItem="rbT-bN-gOb" secondAttribute="trailing" id="0TB-8F-q4U"/>
                             <constraint firstItem="rbT-bN-gOb" firstAttribute="bottom" secondItem="8QT-RJ-22N" secondAttribute="bottom" constant="-300" id="6cg-JZ-lvv"/>
